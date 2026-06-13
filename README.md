@@ -1,41 +1,44 @@
 <!--
   ───────────────────────────────────────────────────────────────
-  PROFILE README  —  to render on your GitHub profile this repo
-  MUST be named  Cyevil/Cyevil  (same as your username), not "rohith".
-  Put header.svg in the repo root. No external services, no widgets.
+  ctOS PROFILE README — to render on your GitHub profile this repo
+  MUST be named  Cyevil/Cyevil  (matches your username), not "rohith".
+  header.svg goes in the repo root. Original emblem/branding — not
+  Ubisoft's DedSec mark — so it's yours to ship.
   ───────────────────────────────────────────────────────────────
 -->
 
 <div align="center">
 
-![Rohith Mummadi](./header.svg)
+![CYEVIL // ctOS profile](./header.svg)
 
 </div>
 
-### `// brief`
-
-> Offensive-security operator. I break web applications and Active Directory,
-> build the detections that catch the same attacks, and automate the rest.
-> Currently grinding OSCP and shipping a public attack/defense lab.
-
-### `// capabilities`
-
-```text
-OFFENSIVE   web-app pentesting · exploitation · Active Directory attack paths
-DEFENSE     SIEM detection engineering · incident response · threat hunting
-CLOUD       Azure security · identity & access · workload hardening
-TOOLING     python · playwright recon automation · custom intel pipelines
+```console
+root@ctOS:~$ ./profile --target @CYEVIL --verbose
+[+] subject located ............ ROHITH MUMMADI
+[+] clearance .................. OFFENSIVE-SEC / SOC / CLOUD
+[+] threat level .............. CRITICAL
+[+] status .................... ACTIVE — hunting roles, shipping labs
 ```
 
-### `// selected work`
+### `// LOADOUT`
 
-Curated, not dumped. Pin these four on your profile and keep the rest quiet.
+```text
+EXPLOIT     web-app pentesting · exploitation · Active Directory attack paths
+DETECT      SIEM detection engineering · incident response · threat hunting
+CLOUD       Azure security · identity & access · workload hardening
+ARSENAL     python · playwright recon automation · custom intel pipelines
+```
 
-- **[ad-range](#)** — Active Directory attack/defense lab; detections mapped to MITRE ATT&CK.
-- **[recon-pipeline](#)** — async Python + Playwright asset-intel collector.
-- **[detection-rules](#)** — Splunk / Elastic rules with tuned, documented logic.
-- **[void-phantom](#)** — the cyberpunk terminal page, kept as a craft piece.
+### `// OPS` — selected operations
 
-### `// contact`
+Pin these four. Keep the noise off the profile.
 
-**[ PORTFOLIO ](https://your-portfolio.vercel.app)**&nbsp;&nbsp;·&nbsp;&nbsp;**[ LINKEDIN ](https://linkedin.com/in/your-handle)**&nbsp;&nbsp;·&nbsp;&nbsp;**[ EMAIL ](mailto:you@example.com)**
+- **[ad-range](#)** &nbsp;`AD attack/defense lab — detections mapped to MITRE ATT&CK`
+- **[recon-pipeline](#)** &nbsp;`async Python + Playwright asset-intel collector`
+- **[detection-rules](#)** &nbsp;`Splunk / Elastic rules, tuned and documented`
+- **[void-phantom](#)** &nbsp;`the cyberpunk terminal page — kept as a craft piece`
+
+### `// UPLINK`
+
+**[ PORTFOLIO ](https://your-portfolio.vercel.app)** &nbsp;//&nbsp; **[ LINKEDIN ](https://linkedin.com/in/your-handle)** &nbsp;//&nbsp; **[ EMAIL ](mailto:you@example.com)**
