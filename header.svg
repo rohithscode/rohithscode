@@ -1,112 +1,81 @@
-<svg viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rohith Mummadi - Offensive Security">
+<svg viewBox="0 0 1000 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rohith Mummadi — Offensive Security">
   <defs>
-    <!-- neon bloom -->
-    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="2.2" result="b"/>
-      <feMerge>
-        <feMergeNode in="b"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <clipPath id="reveal">
+      <rect x="56" y="100" height="86" width="0">
+        <animate attributeName="width" values="0;730;730;730" keyTimes="0;0.28;0.92;1" dur="9s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <clipPath id="ahead">
+      <rect x="56" y="100" width="690" height="86">
+        <animate attributeName="x"     values="56;786;786;56"   keyTimes="0;0.28;0.92;1" dur="9s" repeatCount="indefinite"/>
+        <animate attributeName="width" values="730;0;0;730"      keyTimes="0;0.28;0.92;1" dur="9s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.4"/>
     </filter>
-
-    <!-- CRT horizontal line texture -->
-    <pattern id="crt" width="3" height="3" patternUnits="userSpaceOnUse">
-      <rect width="3" height="3" fill="#0a0e14"/>
-      <rect width="3" height="1" y="2" fill="#05d9e8" opacity="0.05"/>
-    </pattern>
-
-    <!-- vignette -->
-    <radialGradient id="vig" cx="50%" cy="48%" r="75%">
-      <stop offset="55%" stop-color="#0a0e14" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000" stop-opacity="0.85"/>
-    </radialGradient>
-
-    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"  stop-color="#05d9e8" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#05d9e8" stop-opacity="0.18"/>
-    </linearGradient>
-
-    <!-- glitch slice clips -->
-    <clipPath id="sliceA"><rect id="rA" x="0" y="150" width="1000" height="10"/></clipPath>
-    <clipPath id="sliceB"><rect id="rB" x="0" y="172" width="1000" height="7"/></clipPath>
   </defs>
 
   <style>
-    text { font-family: 'JetBrains Mono','Consolas','Courier New',monospace; }
-    .prompt { fill:#05d9e8; font-size:22px; font-weight:600; }
-    .path   { fill:#ff2a6d; }
-    .cmd    { fill:#e6edf3; }
-    .name   { font-size:74px; font-weight:800; letter-spacing:2px; }
-    .role   { fill:#ff2a6d; font-size:21px; font-weight:600; letter-spacing:3px; }
+    text { font-family: "JetBrains Mono","SFMono-Regular","Consolas","Courier New",monospace; }
+    .meta   { fill:#5f6066; font-size:12.5px; letter-spacing:3px; }
+    .accent { fill:#ffb000; }
+    .dot    { fill:#ffb000; }
+    .name   { font-size:66px; font-weight:700; letter-spacing:1px; }
+    .real   { fill:#ece8df; clip-path:url(#reveal); }
+    .scramble { fill:#8a6a1f; clip-path:url(#ahead); }
+    .role   { fill:#ffb000; font-size:15px; letter-spacing:2px; opacity:0; animation:rolein 9s linear infinite; }
+    .scanhead { fill:#ffd27a; filter:url(#soft); }
 
-    .base { fill:#e6edf3; filter:url(#glow); }
-    .cy   { fill:#05d9e8; opacity:.9; animation:gA 4s infinite steps(1); }
-    .mg   { fill:#ff2a6d; opacity:.9; animation:gB 4s infinite steps(1); }
+    .s1{opacity:.9;animation:f1 .42s steps(1) infinite} .s2{opacity:0;animation:f2 .42s steps(1) infinite} .s3{opacity:0;animation:f3 .42s steps(1) infinite}
+    @keyframes f1{0%,33%{opacity:.9}34%,100%{opacity:0}}
+    @keyframes f2{34%,66%{opacity:.9}0%,33%,67%,100%{opacity:0}}
+    @keyframes f3{67%,99%{opacity:.9}0%,66%,100%{opacity:0}}
 
-    @keyframes gA {
-      0%,40%,100%{transform:translate(0,0)} 41%{transform:translate(-4px,1px)}
-      43%{transform:translate(0,0)} 78%{transform:translate(0,0)}
-      80%{transform:translate(3px,-2px)} 82%{transform:translate(0,0)}
+    @keyframes rolein{0%,30%{opacity:0}36%,90%{opacity:1}100%{opacity:0}}
+
+    .decrypting{fill:#5f6066;font-size:12.5px;letter-spacing:3px;animation:dec 9s linear infinite}
+    .granted{fill:#ffb000;font-size:12.5px;letter-spacing:3px;opacity:0;animation:grn 9s linear infinite}
+    @keyframes dec{0%,27%{opacity:1}30%,100%{opacity:0}}
+    @keyframes grn{0%,29%{opacity:0}31%{opacity:1}33%{opacity:.2}35%,92%{opacity:1}100%{opacity:0}}
+
+    .tick{stroke:#33343c;stroke-width:1.5;fill:none}
+    .rule{stroke:#1c1d22;stroke-width:1}
+
+    @media (prefers-reduced-motion: reduce){
+      .real{clip-path:none}
+      .scramble,.scanhead,.decrypting{display:none}
+      .role,.granted{opacity:1;animation:none}
     }
-    @keyframes gB {
-      0%,40%,100%{transform:translate(0,0)} 41%{transform:translate(4px,-1px)}
-      43%{transform:translate(0,0)} 78%{transform:translate(0,0)}
-      80%{transform:translate(-3px,2px)} 82%{transform:translate(0,0)}
-    }
-    /* tearing slices jump sideways on glitch beats */
-    #rA{animation:tearA 4s infinite steps(1)} #rB{animation:tearB 4s infinite steps(1)}
-    @keyframes tearA{0%,40%{transform:translate(0,0)}41%{transform:translate(18px,0)}45%{transform:translate(0,0)}100%{transform:translate(0,0)}}
-    @keyframes tearB{0%,78%{transform:translate(0,0)}80%{transform:translate(-22px,0)}84%{transform:translate(0,0)}100%{transform:translate(0,0)}}
-
-    .cursor { fill:#05d9e8; animation:blink 1.05s steps(1) infinite; }
-    @keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
-
-    .scan { animation:scan 5s linear infinite; }
-    @keyframes scan{0%{transform:translateY(-20px)}100%{transform:translateY(320px)}}
-
-    .flick { animation:flick 7s infinite; }
-    @keyframes flick{0%,96%,100%{opacity:1}97%{opacity:.55}98%{opacity:1}99%{opacity:.7}}
   </style>
 
-  <!-- backdrop -->
-  <rect width="1000" height="300" fill="#0a0e14"/>
-  <rect width="1000" height="300" fill="url(#crt)"/>
+  <rect width="1000" height="290" fill="#0a0a0c"/>
 
-  <!-- perspective floor grid -->
-  <g stroke="#05d9e8" stroke-width="1" opacity="0.5">
-    <line x1="-200" y1="300" x2="350" y2="210" stroke="url(#floor)"/>
-    <line x1="80"   y1="300" x2="420" y2="210" stroke="url(#floor)"/>
-    <line x1="360"  y1="300" x2="490" y2="210" stroke="url(#floor)"/>
-    <line x1="640"  y1="300" x2="560" y2="210" stroke="url(#floor)"/>
-    <line x1="920"  y1="300" x2="630" y2="210" stroke="url(#floor)"/>
-    <line x1="1200" y1="300" x2="700" y2="210" stroke="url(#floor)"/>
-    <line x1="0" y1="300" x2="1000" y2="300" stroke="#05d9e8" stroke-opacity="0.15"/>
-    <line x1="120" y1="262" x2="880" y2="262" stroke="#05d9e8" stroke-opacity="0.10"/>
-    <line x1="220" y1="232" x2="780" y2="232" stroke="#05d9e8" stroke-opacity="0.07"/>
+  <path class="tick" d="M24 40 V24 H40"/>
+  <path class="tick" d="M960 24 H976 V40"/>
+  <path class="tick" d="M24 250 V266 H40"/>
+  <path class="tick" d="M976 250 V266 H960"/>
+
+  <text x="56" y="58" class="meta">FILE://MUMMADI_R<tspan dx="22" fill="#33343c">|</tspan><tspan dx="22">CLEARANCE: OFFENSIVE-SEC</tspan><tspan dx="22" fill="#33343c">|</tspan><tspan dx="22">NODE: NYC</tspan></text>
+  <text x="944" y="58" text-anchor="end" class="decrypting">[ DECRYPTING ]</text>
+  <text x="944" y="58" text-anchor="end" class="granted">[ ACCESS&#160;GRANTED ]</text>
+
+  <line class="rule" x1="56" y1="74" x2="944" y2="74"/>
+
+  <g class="name">
+    <text class="real" x="56" y="166">ROHITH MUMMADI</text>
+    <text class="scramble s1" x="56" y="166">4#K&amp;7! %@&lt;#9*=</text>
+    <text class="scramble s2" x="56" y="166">/X9%K7 @7&lt;+#*&amp;</text>
+    <text class="scramble s3" x="56" y="166">7&lt;+#!9 +%@9K=8</text>
   </g>
 
-  <g class="flick">
-    <!-- kali prompt -->
-    <text x="60" y="56" class="prompt">┌──(<tspan class="cmd">rohith</tspan>㉿<tspan class="cmd">kali</tspan>)-[<tspan class="path">~/profile</tspan>]</text>
-    <text x="60" y="86" class="prompt">└─$ <tspan class="cmd">whoami</tspan> <tspan class="path">--verbose</tspan></text>
+  <rect class="scanhead" x="56" y="100" width="2.5" height="86">
+    <animate attributeName="x" values="56;786;786;786" keyTimes="0;0.28;0.92;1" dur="9s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.27;0.30;0.99;1" dur="9s" repeatCount="indefinite"/>
+  </rect>
 
-    <!-- glitch name: layered chromatic split + tearing slices -->
-    <g class="name">
-      <text class="cy" x="58" y="172">ROHITH MUMMADI</text>
-      <text class="mg" x="58" y="172">ROHITH MUMMADI</text>
-      <text class="base" x="58" y="172">ROHITH MUMMADI</text>
-      <g clip-path="url(#sliceA)"><text class="cy"  x="58" y="172">ROHITH MUMMADI</text></g>
-      <g clip-path="url(#sliceB)"><text class="mg" x="58" y="172">ROHITH MUMMADI</text></g>
-    </g>
+  <text x="58" y="208" class="role">// penetration testing&#160;&#160;·&#160;&#160;soc analysis&#160;&#160;·&#160;&#160;cloud security</text>
 
-    <!-- role line -->
-    <text x="60" y="212" class="role">[ OFFENSIVE&#160;SECURITY // BLUE&#160;TEAM // CLOUD ]</text>
-    <!-- blinking cursor after the command -->
-    <rect class="cursor" x="350" y="71" width="13" height="18"/>
-  </g>
-
-  <!-- moving scanline -->
-  <rect class="scan" x="0" y="0" width="1000" height="6" fill="#05d9e8" opacity="0.07"/>
-  <!-- vignette on top -->
-  <rect width="1000" height="300" fill="url(#vig)"/>
+  <line class="rule" x1="56" y1="234" x2="944" y2="234"/>
+  <text x="56" y="256" class="meta">CEH&#160;CERTIFIED<tspan dx="20" fill="#33343c">|</tspan><tspan dx="20">OSCP&#160;//&#160;IN&#160;PROGRESS</tspan><tspan dx="20" fill="#33343c">|</tspan><tspan dx="20">M.S.&#160;CYBERSECURITY</tspan></text>
 </svg>
